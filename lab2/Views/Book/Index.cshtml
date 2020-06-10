@@ -1,0 +1,40 @@
+﻿@model IEnumerable<lab2.Models.Book>
+
+@{
+    ViewBag.Title = "List Book";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>List Book</h2>
+
+<p>
+    @Html.ActionLink("Create New Book", "CreateBook")
+</p>
+<div class="row">
+@foreach (var item in Model)
+{
+    <div class="">
+        <div class="panel panel-default">
+        <div class="panel panel-heading">@item.Name</div>
+        <div class="panel-body">
+            <p>
+                <strong>Tac Gia: </strong>@item.Tacgia
+            </p>
+            <p>
+                <img src="@item.Img_cover" width="95" title="img" alt="Hinh Anh" />
+            </p>
+        </div>
+        <div>
+            <div class="panel-footer clearfix">
+                <div class="pull-right">
+                  <a class="btn btn-primary"  @Html.ActionLink("Edit", "EditBook", new { id = item.Id })
+                    @Html.ActionLink("Delete", "DeleteBook", new { id = item.Id })
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+       
+}
+</div>
+        
