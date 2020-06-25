@@ -29,5 +29,7 @@ namespace lab2.Models
         {
             return new ApplicationDbContext();
         }
+
+        public System.Data.Entity.DbSet<lab2.Models.Book> Books { get; set; }
     }
 }
